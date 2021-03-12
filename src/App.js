@@ -14,16 +14,16 @@ const App = () => {
     <>
       <Header title={ headerTitle } descr = { headerDescr }/>
       <Layout 
-        title={ 'First layout' }
-        descr={ 'First descr' }
+        title='First layout'
+        descr='First descr'
         urlBg={ urlBg }
       />
       <Layout 
-        descr={ 'Second descr' }
-        colorBg={ '#e2e2e2' }
+        descr='Second descr'
+        colorBg='#e2e2e2'
       />
       <Layout 
-        title={ 'Third layout' }
+        title='Third layout'
         urlBg={ urlBg }
       />
       <Footer />
