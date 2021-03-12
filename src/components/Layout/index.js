@@ -6,7 +6,7 @@ const Layout = ({ title, descr, urlBg, colorBg }) => {
       className={ s.root }
       style={{ 
         backgroundImage : `url(${urlBg})`,
-        backgroundColor: `${colorBg}` 
+        backgroundColor: colorBg
       }}
     >
       <div className={ s.wrapper }>
