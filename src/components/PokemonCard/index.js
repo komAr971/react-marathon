@@ -7,7 +7,7 @@ const PokemonCard = ({ type, values, img, name, id}) => {
   const [isActive, setActive] = useState(false)
 
   const handleClick = () => {
-    setActive(true);
+    setActive(!isActive);
   };
   
   return (
