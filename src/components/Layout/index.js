@@ -1,21 +1,22 @@
 import s from './style.module.css'
+import cn from 'classnames'
 
 const Layout = ({ title, urlBg, colorBg, children }) => {
   return (
     <section 
-      className={ s.root }
+      className={ cn(s.root) }
       style={{ 
         backgroundImage : `url(${urlBg})`,
         backgroundColor: colorBg
       }}
     >
-      <div className={ s.wrapper }>
+      <div className={ cn(s.wrapper) }>
           <article>
-              <div className={ s.title }>
+              <div className={ cn(s.title) }>
                   { title && <h3>{ title }</h3> }
-                  <span className={ s.separator }></span>
+                  <span className={ cn(s.separator) }></span>
               </div>
-              <div className= { `${s.desc} ${s.full}` }>
+              <div className= { cn(s.desc, s.full) }>
                   {children}
               </div>
           </article>

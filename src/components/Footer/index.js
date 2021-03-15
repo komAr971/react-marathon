@@ -1,9 +1,10 @@
 import s from './style.module.css'
+import cn from 'classnames'
 
 const Footer = () => {
   return (
     <footer>
-        <div className={ s.wraper }>
+        <div className={ cn(s.wraper) }>
             <h3>THANKS FOR VISITING</h3>
             <p>© 2021 #ReactMarathon.</p>
         </div>
