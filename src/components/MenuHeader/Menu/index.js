@@ -1,7 +1,7 @@
 import cn from 'classnames';
 import s from './style.module.css';
 
-const Menu = ({ isActive }) => {
+const Menu = ({ isOpen }) => {
   const ROUTES = [
     { name: 'HOME', href: '#welcome', key: 1 },
     { name: 'GAME', href: '#game', key: 2 },
@@ -10,7 +10,10 @@ const Menu = ({ isActive }) => {
   ];
 
   return (
-    <div className={ cn(s.menuContainer, { [s.active]: isActive, [s.diactive]: !isActive }) }>
+    <div className={ cn(s.menuContainer, {
+         [s.active]: isOpen === true,
+         [s.diactive]: isOpen === false 
+     })}>
       <div className={ cn(s.overlay) }/>
       <div className={ cn(s.menuItems) }>
         <ul>
