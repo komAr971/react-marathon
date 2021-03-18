@@ -1,15 +1,18 @@
+import { Link } from 'react-router-dom'
 import cn from 'classnames';
 import s from './style.module.css';
 
 const MENU = [
-  { name: 'HOME', href: '#welcome', key: 1 },
-  { name: 'GAME', href: '#game', key: 2 },
-  { name: 'ABOUT', href: '#about', key: 3 },
-  { name: 'CONTACT', href: '#contact', key: 4 }
+  { name: 'HOME', href: 'home', key: 1 },
+  { name: 'GAME', href: 'game', key: 2 },
+  { name: 'ABOUT', href: 'about', key: 3 },
+  { name: 'CONTACT', href: 'contact', key: 4 }
 ];
 
-const Menu = ({ isOpen }) => {
-  
+const Menu = ({ isOpen, onClickMenuItem }) => {
+  const handleClickMenuItem = () => {
+    onClickMenuItem && onClickMenuItem();
+  }
 
   return (
     <div className={ cn(s.menuContainer, {
@@ -23,9 +26,9 @@ const Menu = ({ isOpen }) => {
             MENU.map(item => <li  
                 key={item.key}
               >
-              <a href={item.href}>
+              <Link to={item.href} onClick={handleClickMenuItem}>
                 {item.name}
-              </a>
+              </Link>
             </li>)
           }
         </ul>
