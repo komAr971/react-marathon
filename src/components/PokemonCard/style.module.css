@@ -30,7 +30,7 @@
 }
 
 .pokemonCard.active {
-  animation: flipFront 1000ms 300ms forwards;
+  animation: flipFront 1000ms 0ms forwards;
 }
 
 @keyframes flipFront {
@@ -39,6 +39,19 @@
   }
   to {
       transform: rotateY(0deg);
+  }
+}
+
+.pokemonCard.diactive {
+  animation: flipBack 1000ms 0ms forwards;
+}
+
+@keyframes flipBack {
+  from {
+      transform: rotateY(0deg);
+  }
+  to {
+      transform: rotateY(180deg);
   }
 }
 
