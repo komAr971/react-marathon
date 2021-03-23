@@ -10,7 +10,7 @@ const PokemonCard = ({ type, values, img, name, id, isActive, onHandleCardClick}
   
   return (
     <div className={ cn(s.root) } onClick={handleClick}>
-      <div className={ cn(s.pokemonCard, { [s.active]: isActive }) }>
+      <div className={ cn(s.pokemonCard, { [s.active]: isActive, [s.diactive]: !isActive}) }>
         <div className={ cn(s.cardFront) }>
             <div className={ cn(s.wrap, s.front) }>
                 <div className={ cn(s.pokemon, s[type]) }>
