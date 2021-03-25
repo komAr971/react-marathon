@@ -1,0 +1,13 @@
+.container {
+  display: flex;
+  flex-direction: column;
+}
+.flex {
+  display: flex;
+}
+
+.cardBoard {
+  width: 100%;
+  max-width: 18vw;
+  height: 14.8vw;
+}

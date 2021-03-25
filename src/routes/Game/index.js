@@ -8,8 +8,9 @@ import FinishPage from './routes/Finish'
 
 const GamePage = () => {
   const [selectedPokemons, setSelectedPokemons] = useState({});
+  const [pokemonsEnemy, setPokemonsEnemy] = useState([])
+  const [winer, setWiner] = useState(null);
   const match = useRouteMatch();
-  console.log(selectedPokemons)
 
   const handleSelectedPokemons = (key, pokemon) => {
     setSelectedPokemons(prevState => {
@@ -25,10 +26,25 @@ const GamePage = () => {
       }
     })
   }
+
+  const setEnemy = (pokemons) => {
+    setPokemonsEnemy(prevState => {
+      return [...prevState, ...pokemons];
+    });
+  }
+
+  const onSetWiner = (winer) => {
+    setWiner(winer);
+  }
+
   return (
       <PokemonContext.Provider value={{ 
         pokemons: selectedPokemons,
-        onSelectedPokemons: handleSelectedPokemons
+        onSelectedPokemons: handleSelectedPokemons,
+        pokemonsEnemy: pokemonsEnemy,
+        setPokemonsEnemy: setEnemy,
+        winer: winer,
+        setWiner: onSetWiner
       }}>
         <Switch>
           <Route path={`${match.path}/`} exact component={StartPage} />
