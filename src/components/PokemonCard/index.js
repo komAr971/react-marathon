@@ -3,14 +3,17 @@ import cn from 'classnames'
 import s from './style.module.css'
 import cardBackSide from './assets/card-back-side.jpg'
 
-const PokemonCard = ({ type, values, img, name, id, isActive, onHandleCardClick}) => {
+const PokemonCard = ({ type, values, img, name, id, isActive, isSelected, onHandleCardClick, minimize, className}) => {
   const handleClick = () => {
     onHandleCardClick && onHandleCardClick(id);
   };
-  
   return (
-    <div className={ cn(s.root) } onClick={handleClick}>
-      <div className={ cn(s.pokemonCard, { [s.active]: isActive, [s.diactive]: !isActive}) }>
+      <div className={ cn(className, s.pokemonCard, {
+           [s.active]: isActive,
+           [s.selected]: isSelected,
+        })}
+        onClick={handleClick}
+      >
         <div className={ cn(s.cardFront) }>
             <div className={ cn(s.wrap, s.front) }>
                 <div className={ cn(s.pokemon, s[type]) }>
@@ -23,11 +26,11 @@ const PokemonCard = ({ type, values, img, name, id, isActive, onHandleCardClick}
                     <div className={ cn(s.imgContainer) }>
                         <img src={img} alt={name} />
                     </div>
-                    <div className={ cn(s.info) }>
+                    { !minimize && <div className={ cn(s.info) }>
                         <span className={ cn(s.number) }>#{id}</span>
                         <h3 className={ cn(s.name) }>{name}</h3>
                         <small className={ cn(s.type) }>Type: <span>{type}</span></small>
-                    </div>
+                    </div> }
                 </div>
             </div>
         </div>
@@ -39,7 +42,6 @@ const PokemonCard = ({ type, values, img, name, id, isActive, onHandleCardClick}
         </div>
 
     </div>
-</div>
   )
 }
 
